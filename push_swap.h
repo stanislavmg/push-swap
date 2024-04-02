@@ -2,16 +2,9 @@
 # define PUSH_SWAP_H
 
 #include <stdlib.h>
-
-typedef enum
-{
-    false, true
-}   bool;
-
-typedef struct  s_stack
-{
-    int data;
-    struct  s_stack *next;
-}stack;
+void	swap(t_list **stack);
+void	push(t_list **stack_a, t_list **stack_b);
+void	shift_up(t_list **stack);
+void	shift_down(t_list **stack);
 
 #endif
