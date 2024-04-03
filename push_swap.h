@@ -2,7 +2,6 @@
 # define PUSH_SWAP_H
 
 #include "libft/libft.h"
-#include <stdlib.h>
 #include <limits.h>
 
 /*stack operations*/
@@ -11,5 +10,11 @@ void	push(t_list **stack_a, t_list **stack_b);
 void	shift_up(t_list **stack);
 void	shift_down(t_list **stack);
 /*arguments validation*/
+int	valid_args(int argc, char **argv);
+int	check_str(char *str);
+/*stack create, initialization and free*/
+void del_node(void *data);
+int create_stack(int argc, char **argv, t_list **stack_a);
+/*sorting algorithm*/
 
 #endif

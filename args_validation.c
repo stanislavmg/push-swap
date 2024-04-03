@@ -1,9 +1,5 @@
 #include "push_swap.h"
 
-int	ft_isspace(char	ch)
-{
-	return ((ch >= '\t' && ch <= '\r') || ' ' == ch)
-}
 int	check_str(char *str)
 {
 	int	i;
@@ -20,6 +16,7 @@ int	check_str(char *str)
 	}
 	return (0);
 }
+
 int	valid_args(int argc, char **argv)
 {
 	int	i;
