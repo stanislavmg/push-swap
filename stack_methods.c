@@ -12,11 +12,15 @@ void	swap(t_list **stack)
 	(*stack)->next = tmp;
 }
 
-void	push(t_list **stack, t_list *node)
+void	push(t_list **from, t_list **in)
 {
-	if (!node || !stack || !*stack)
+	t_list	*tmp;
+
+	tmp = *from;
+	*from = (*from)->next;
+	if (!from || !*from)
 		return ;
-	ft_lstadd_front(stack, node);
+	ft_lstadd_front(in, tmp);
 }
 
 void	shift_up(t_list **stack)
