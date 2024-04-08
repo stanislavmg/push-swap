@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 16:47:34 by sgoremyk          #+#    #+#             */
-/*   Updated: 2024/02/01 16:47:43 by sgoremyk         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_atoi(const char *str, int *data)
@@ -38,5 +27,5 @@ char	*ft_atoi(const char *str, int *data)
 	while (ft_isspace(str[i]))
 		i++;
 	*data = res * sign;
-	return (str + i);
+	return ((char *)str + i);
 }

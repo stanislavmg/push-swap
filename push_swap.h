@@ -2,7 +2,8 @@
 # define PUSH_SWAP_H
 
 #include "libft/libft.h"
-#include <limits.h>
+#include <stdio.h>
+#include <unistd.h>
 
 /*stack operations*/
 void	swap(t_list **stack);

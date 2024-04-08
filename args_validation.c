@@ -23,10 +23,10 @@ int	valid_args(int argc, char **argv)
 
 	if (argc < 2 || !argv)
 		return (-1);
-	i = 0;
+	i = 1;
 	while (i < argc)
 	{
-		if (check_str(argv[i]));
+		if (check_str(argv[i]))
 			return (1);
 		i++;
 	}
