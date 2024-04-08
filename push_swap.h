@@ -3,11 +3,11 @@
 
 #include "libft/libft.h"
 #include <stdio.h>
-#include <unistd.h>
 
 /*stack operations*/
+
 void	swap(t_list **stack);
-void	push(t_list **stack_a, t_list **stack_b);
+void	push(t_list **stack, t_list *node);
 void	shift_up(t_list **stack);
 void	shift_down(t_list **stack);
 /*arguments validation*/

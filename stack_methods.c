@@ -1,28 +1,23 @@
 #include "push_swap.h"
 
-// void	swap(t_list **stack)
-// {
-// 	t_list	*tmp;
-
-// 	if (!stack || !*stack || 2 > ft_lstsize(*stack))
-// 		return ;
-// 	tmp = *stack;
-// 	*stack = (*stack)->next;
-// 	tmp->next = (*stack)->next
-// 	(*stack)->next = tmp;
-// }
-
-void	push(t_list **stack_a, t_list **stack_b)
+void	swap(t_list **stack)
 {
 	t_list	*tmp;
 
-	if (!stack_a || !*stack_a || !stack_b || !*stack_b)
+	if (!stack || !*stack || 2 > ft_lstsize(*stack))
 		return ;
-	tmp = (*stack_a)->next;
-	(*stack_a)->next = *stack_b;
-	stack_b = stack_a;
-	*stack_a = tmp;
-}	
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
+}
+
+void	push(t_list **stack, t_list *node)
+{
+	if (!node || !stack || !*stack)
+		return ;
+	ft_lstadd_front(stack, node);
+}
 
 void	shift_up(t_list **stack)
 {
@@ -30,11 +25,9 @@ void	shift_up(t_list **stack)
 
 	if (!stack || !*stack || 2 > ft_lstsize(*stack))
 		return ;
-	tmp = *stack;
-	*stack = ft_lstlast(*stack);
-	if (!*stack)
-		return ;
-	(*stack)->next = tmp;
+	tmp = ft_lstlast(*stack);
+	ft_lstadd_front(stack, tmp);
+	tmp = tmp->next;
 	while (tmp->next != *stack)
 		tmp = tmp->next;
 	tmp->next = NULL;
@@ -47,7 +40,7 @@ void	shift_down(t_list **stack)
 	if (!stack || !*stack || 2 > ft_lstsize(*stack))
 		return ;
 	tmp = ft_lstlast(*stack);
-	tmp->next = *stack;
+	ft_lstadd_back(stack, *stack);
 	*stack = (*stack)->next;
-	(*stack)->next = NULL;
+	tmp->next->next = NULL;
 }

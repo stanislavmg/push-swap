@@ -1,6 +1,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -11,6 +12,8 @@ typedef struct s_list
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isspace(char	ch);
+size_t	ft_strlen(const char *s);
+void	ft_putstr(char *s);
 char	*ft_atoi(const char *str, int *data);
 /*one-link list operations*/
 t_list	*ft_lstnew(int num);
