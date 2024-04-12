@@ -1,77 +1,75 @@
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	t_list	*t;
-
+	t_list *stack_a;
+	t_list *stack_b;
+	
+	stack_a = NULL;
+	stack_b = NULL;
 	if (valid_args(argc, argv) || create_stack(argc, argv, &stack_a))
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	t = stack_a;
-	printf("BEFORE\n\n");
-	while (t)
-	{
-		printf("%d\n", (t->data));
-		t = t->next;
-	}
 	sort_stack(&stack_a, &stack_b);
-	t = stack_a;
-	printf("AFTER STACK_A\n\n");
-	while (t)
-	{
-		printf("%d\n", (t->data));
-		t = t->next;
-	}
-	t = stack_b;
-	printf("AFTER STACK_B\n\n");
-	while (t)
-	{
-		printf("%d\n", (t->data));
-		t = t->next;
-	}
+	//print_stack(stack_a);
 	return (0);
 }
 
-void	sort_stack(t_list **stack_a, t_list **stack_b)
+void sort_stack(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*bot_a;
-	//t_list	*tmp;
-	int	size;
+	t_list *min;
+	int		pos;
+	int 	size;
 
-	//tmp = *stack_a;
 	size = ft_lstsize(*stack_a);
-	push(stack_a, stack_b);
-	bot_a = ft_lstlast(*stack_a);
-	size--;
-	while (size / 2 != 0)
+	while (size)
 	{
-		if ((*stack_a)->data < (*stack_b)->data)
-			push(stack_a, stack_b);
-		else if ((*stack_a)->data > bot_a->data)
-			shift_down(stack_a);
+		min = search_min(*stack_a, &pos);
+		if (pos <= size / 2)
+		{
+			while (*stack_a && *stack_a != min)
+				shift_up(stack_a, "ra\n");
+		}
+		else
+		{
+			while (*stack_a && *stack_a != min)
+				shift_down(stack_a, "rra\n");
+		}
+		push(stack_a, stack_b, "pb\n");
 		size--;
 	}
+	while (*stack_b)
+		push(stack_b, stack_a, "pa\n");
 }
 
-// int	search_bounds(int *min, int max, t_list *stack)
-// {
-// 	int	count;
+t_list	*search_min(t_list *stack, int *pos)
+{
+	t_list	*min;
+	int		i;
 
-// 	count = 0;
-// 	*min = stack->data;
-// 	*max = stack->data;
-// 	while (stack)
-// 	{
-// 		if (stack->data > *max)
-// 			*max = stack->data;
-// 		if (stack->data < *min)
-// 			*min = stack->data;
-// 		stack = stack->next;
-// 		count++;
-// 	}
-// 	return (count);
-// }
+	min = stack;
+	i = 0;
+	*pos = i;
+	while(stack)
+	{
+		i++;
+		if (min->data > stack->data)
+		{
+			min = stack;
+			*pos = i;
+		}
+		stack = stack->next;
+	}
+	return (min);
+}
+
+void	print_stack(t_list *stack)
+{
+	while (stack)
+	{
+		printf("%d\n", stack->data);
+		stack = stack->next;
+	}
+}
