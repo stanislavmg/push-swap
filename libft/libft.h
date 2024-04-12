@@ -12,6 +12,7 @@ typedef struct s_list
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isspace(char	ch);
+int		ft_strnstr(const char *big, const char *little, size_t len);
 size_t	ft_strlen(const char *s);
 void	ft_putstr(const char *s);
 char	*ft_atoi(const char *str, int *data);

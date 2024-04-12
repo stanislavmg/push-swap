@@ -31,9 +31,20 @@ int	valid_args(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (check_str(argv[i]))
+		if (check_sign(argv[i]) && check_duplicate(argv[i], argv))
 			return (1);
 		i++;
 	}
+	return (0);
+}
+
+int	check_duplicate(char *sub_str, char	**argv)
+{
+	int	i;
+
+	i = 1;
+	while ()
+
+
 	return (0);
 }
