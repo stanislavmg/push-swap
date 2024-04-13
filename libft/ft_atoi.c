@@ -2,9 +2,9 @@
 
 char	*ft_atoi(const char *str, int *data)
 {
-	int	sign;
-	int	res;
-	int	i;
+	int			sign;
+	int			i;
+	long long	res;
 
 	i = 0;
 	res = 0;
@@ -26,6 +26,11 @@ char	*ft_atoi(const char *str, int *data)
 	}
 	while (ft_isspace(str[i]))
 		i++;
+	if (res > INT_MAX || res < INT_MIN)
+	{
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
 	*data = res * sign;
 	return ((char *)str + i);
 }

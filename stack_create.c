@@ -1,19 +1,36 @@
 #include "push_swap.h"
 
-int create_stack(int argc, char **argv, t_list **stack_a)
+void create_stack(t_list **stack_a, int *arr, int size)
 {
 	int i;
-	int num;
+
+	i = -1;
+	while (++i < size)
+		ft_lstadd_back(stack_a, ft_lstnew(arr[i]));
+}
+
+int	*create_array(int argc, char **argv, int count)
+{
+	int		*rval;
+	int 	i;
+	int		j;
 
 	i = 1;
+	j = 0;
+	rval = (int *)malloc(sizeof(int) * count);
+	if (!rval)
+	{
+		write(2, "NO MEMORY!\n", 11);
+		exit(EXIT_FAILURE);
+	}
 	while (i < argc)
 	{
 		while (argv[i][0])
 		{	
-			argv[i] = ft_atoi(argv[i], &num);
-			ft_lstadd_back(stack_a, ft_lstnew(num));
+			argv[i] = ft_atoi(argv[i], rval + j);
+			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (rval);
 }

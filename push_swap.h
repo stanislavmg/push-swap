@@ -4,20 +4,21 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
-/*stack operations*/
+/* stack operations */
 void	swap(t_list **stack);
 void	push(t_list **from, t_list **in, const char *str);
 void	shift_up(t_list **stack, const char *str);
 void	shift_down(t_list **stack, const char *str);
-/*arguments validation*/
-int		valid_args(int argc, char **argv);
-int		check_str(char *str);
-/*stack create, initialization and free*/
-int	 	create_stack(int argc, char **argv, t_list **stack_a);
-/*sorting algorithm*/
-t_list	*search_min(t_list *stack, int *pos);
-void	sort_stack(t_list **stack_a, t_list **stack_b);
-int		search_bounds(int *min, int max, t_list *stack);
+/* arguments validation */
+int	    valid_args(int argc, char **argv, int *count, int **arr);
+int	    check_duplicate(int	*arr, int size);
+int	    check_str(char *str, int *count);
+/* stack create, initialization and free */
+int 	*create_array(int argc, char **argv, int count);
+void    create_stack(t_list **stack_a, int *arr, int size);
+/* sorting algorithm */
+void    sort_stack(t_list **stack_a, t_list **stack_b, int *arr, int size);
 void	print_stack(t_list *stack);
+void    sort_array(int *arr, int size);
 
 #endif
