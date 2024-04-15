@@ -3,6 +3,7 @@
 
 #include "libft/libft.h"
 #include <stdio.h>
+#include <math.h>
 
 /* stack operations */
 void	swap(t_list **stack);
@@ -18,7 +19,10 @@ int 	*create_array(int argc, char **argv, int count);
 void    create_stack(t_list **stack_a, int *arr, int size);
 /* sorting algorithm */
 void    sort_stack(t_list **stack_a, t_list **stack_b, int *arr, int size);
+void	finish_sort(t_list **stack_a, t_list **stack_b, int *arr, int size);
+t_list	*get_position(t_list *stack, int max, int *pos);
 void	print_stack(t_list *stack);
 void    sort_array(int *arr, int size);
+int		ft_sqrt(int nb);
 
 #endif

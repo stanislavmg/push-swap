@@ -17,7 +17,7 @@ int		ft_strnstr(const char *big, const char *little, size_t len);
 size_t	ft_strlen(const char *s);
 void	ft_putstr(const char *s);
 char	*ft_atoi(const char *str, int *data);
-/*one-link list operations*/
+/* one-link list operations */
 t_list	*ft_lstnew(int num);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
