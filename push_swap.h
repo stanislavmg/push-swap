@@ -1,9 +1,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft/libft.h"
-#include <stdio.h>
-#include <math.h>
+# include "libft/libft.h"
+# include <stdio.h>
+# include <math.h>
 
 /* stack operations */
 void	swap(t_list **stack);

@@ -17,6 +17,7 @@ int	*create_array(int argc, char **argv, int count)
 
 	i = 1;
 	j = 0;
+	printf("count = %d\n",count);
 	rval = (int *)malloc(sizeof(int) * count);
 	if (!rval)
 	{
@@ -25,7 +26,7 @@ int	*create_array(int argc, char **argv, int count)
 	}
 	while (i < argc)
 	{
-		while (argv[i][0])
+		while (argv[i][0] && j < count)
 		{	
 			argv[i] = ft_atoi(argv[i], rval + j);
 			j++;

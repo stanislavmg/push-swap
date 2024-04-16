@@ -18,6 +18,7 @@ int main(int argc, char **argv)
 	int		count;
 
 	arr = NULL;
+	count = 0;
 	if (valid_args(argc, argv, &count, &arr))
 	{
 		write(2, "Error\n", 6);
