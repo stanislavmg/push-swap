@@ -7,17 +7,13 @@ int	check_str(char *str, int *count)
 	i = 0;
 	while (str[i])
 	{
-		/* Check alphabetical symbols */
 		if (ft_isalpha(str[i]))
 			return (1);
-		/* Check double sign */
 		if ((str[i] == '+' || str[i] == '-')
 			&& (str[i + 1] == '+' || str[i + 1] == '-'))
 			return (1);
-		/* Check sign without digit */
 		if ((str[i] == '+' || str[i] == '-') && !ft_isdigit(str[i + 1]))
 			return (1);
-		/* Count numbers */
 		if (ft_isdigit(str[i]))
 		{
 			(*count)++;

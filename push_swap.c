@@ -1,9 +1,9 @@
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_list 	*stack_a;
-	t_list 	*stack_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 	int		*arr;
 	int		count;
 
@@ -22,12 +22,6 @@ int main(int argc, char **argv)
 		sort_stack(&stack_a, &stack_b, arr, count);
 	else
 		small_sort(&stack_a, &stack_b, arr, count);
-	//stack_b = stack_a;
-	// while (stack_b)
-	// {
-	// 	printf("%d\n", stack_b->data);
-	// 	stack_b = stack_b->next;
-	// }
 	free(arr);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);

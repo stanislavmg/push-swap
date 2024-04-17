@@ -3,6 +3,7 @@
 void	swap(t_list **stack, const char *str)
 {
 	t_list	*tmp;
+	
 	if (!stack || !*stack || 2 > ft_lstsize(*stack))
 		return ;
 	tmp = *stack;

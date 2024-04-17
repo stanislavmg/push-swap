@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
-void sort_array(int *arr, int size)
+void	sort_array(int *arr, int size)
 {
 	int	i;
-	int j;
-	int t;
+	int	j;
+	int	t;
 
 	i = 0;
 	while (i < size)
@@ -24,10 +24,10 @@ void sort_array(int *arr, int size)
 	}
 }
 
-void sort_stack(t_list **stack_a, t_list **stack_b, int *arr, int size)
+void	sort_stack(t_list **stack_a, t_list **stack_b, int *arr, int size)
 {
-	int n;
-	int i;
+	int	n;
+	int	i;
 
 	i = 0;
 	n = ft_log(size) + ft_sqrt(size);
@@ -54,13 +54,13 @@ void sort_stack(t_list **stack_a, t_list **stack_b, int *arr, int size)
 
 void	finish_sort(t_list **stack_a, t_list **stack_b, int *arr, int size)
 {
-	int	i;
-	int pos;
+	int		i;
+	int		pos;
 	t_list	*max;
 
 	i = size - 1;
 	max = NULL;
- 	while (*stack_b)
+	while (*stack_b)
 	{
 		max = get_position(*stack_b, arr[i], &pos);
 		if (pos < i / 2)

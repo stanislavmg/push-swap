@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void create_stack(t_list **stack_a, int *arr, int size)
+void	create_stack(t_list **stack_a, int *arr, int size)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < size)
@@ -11,9 +11,9 @@ void create_stack(t_list **stack_a, int *arr, int size)
 
 int	*create_array(int argc, char **argv, int count)
 {
-	int		*rval;
-	int 	i;
-	int		j;
+	int	*rval;
+	int	i;
+	int	j;
 
 	i = 1;
 	j = 0;

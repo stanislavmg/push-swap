@@ -17,7 +17,7 @@ int		check_arr(int	*arr, int size);
 int		check_order(t_list *stack);
 
 /* stack create, initialization and free */
-int 	*create_array(int argc, char **argv, int count);
+int		*create_array(int argc, char **argv, int count);
 void	create_stack(t_list **stack_a, int *arr, int size);
 /* sorting algorithm */
 void	sort_stack(t_list **stack_a, t_list **stack_b, int *arr, int size);
