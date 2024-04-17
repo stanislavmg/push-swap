@@ -31,7 +31,6 @@ void sort_stack(t_list **stack_a, t_list **stack_b, int *arr, int size)
 
 	i = 0;
 	n = ft_log(size) + ft_sqrt(size);
-	sort_array(arr, size);
 	while (*stack_a && i < size)
 	{
 		while (n + i >= size - 1)

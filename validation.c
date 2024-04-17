@@ -35,7 +35,7 @@ int	valid_args(int argc, char **argv, int *count, int **arr)
 	int	i;
 
 	if (argc < 2 || !argv)
-		return (-1);
+		exit (-1);
 	i = 1;
 	while (i < argc)
 	{
@@ -46,6 +46,8 @@ int	valid_args(int argc, char **argv, int *count, int **arr)
 	*arr = create_array(argc, argv, *count);
 	if (check_duplicate(*arr, *count))
 		return (1);
+	if (check_arr(*arr, *count))
+		exit (-1);
 	return (0);
 }
 
@@ -67,4 +69,18 @@ int	check_duplicate(int	*arr, int size)
 		i++;
 	}
 	return (0);
+}
+
+int	check_arr(int	*arr, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		if (arr[i] > arr[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }

@@ -1,5 +1,12 @@
 #include "libft.h"
 
+char *skip_spaces(const char *str)
+{
+	while (ft_isspace(*str))
+		str++;
+	return ((char *)str);
+}
+
 char	*ft_atoi(const char *str, int *data)
 {
 	int			sign;
@@ -9,8 +16,6 @@ char	*ft_atoi(const char *str, int *data)
 	i = 0;
 	res = 0;
 	sign = 1;
-	while (ft_isspace(str[i]))
-		i++;
 	if (str[i] == '-')
 	{
 		sign = -1;
@@ -24,8 +29,6 @@ char	*ft_atoi(const char *str, int *data)
 		res += str[i] - '0';
 		i++;
 	}
-	while (ft_isspace(str[i]))
-		i++;
 	if (res > INT_MAX || res < INT_MIN)
 	{
 		write(2, "Error\n", 6);

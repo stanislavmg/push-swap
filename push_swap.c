@@ -17,7 +17,17 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	create_stack(&stack_a, arr, count);
-	sort_stack(&stack_a, &stack_b, arr, count);
+	sort_array(arr, count);
+	if (count > 5)
+		sort_stack(&stack_a, &stack_b, arr, count);
+	else
+		small_sort(&stack_a, &stack_b, arr, count);
+	//stack_b = stack_a;
+	// while (stack_b)
+	// {
+	// 	printf("%d\n", stack_b->data);
+	// 	stack_b = stack_b->next;
+	// }
 	free(arr);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);

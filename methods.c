@@ -1,5 +1,17 @@
 #include "push_swap.h"
 
+void	swap(t_list **stack, const char *str)
+{
+	t_list	*tmp;
+	if (!stack || !*stack || 2 > ft_lstsize(*stack))
+		return ;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
+	ft_putstr(str);
+}
+
 void	push(t_list **from, t_list **in, const char *str)
 {
 	t_list	*tmp;

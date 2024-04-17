@@ -16,8 +16,10 @@ int		ft_isspace(char	ch);
 int		ft_strnstr(const char *big, const char *little, size_t len);
 size_t	ft_strlen(const char *s);
 void	ft_putstr(const char *s);
+char	*skip_spaces(const char *str);
 int		ft_log(int n);
 int		ft_sqrt(int nb);
+
 char	*ft_atoi(const char *str, int *data);
 /* one-link list operations */
 t_list	*ft_lstnew(int num);
