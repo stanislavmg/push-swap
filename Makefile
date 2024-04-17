@@ -2,9 +2,9 @@ NAME 	=	push_swap
 
 INCLUDE =	push_swap.h
 
-SRCS	=	push_swap.c			stack_create.c\
-			stack_methods.c		args_validation.c\
-			sorting_alg.c
+SRCS	=	push_swap.c		creating.c\
+			methods.c		validation.c\
+			sorting.c
 
 OBJ		=	$(SRCS:%.c=%.o)
 
