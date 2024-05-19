@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/19 15:38:11 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/05/19 15:38:12 by sgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_array(int *arr, int size)
@@ -89,4 +101,18 @@ t_list	*get_position(t_list *stack, int max, int *pos)
 		stack = stack->next;
 	}
 	return (stack);
+}
+
+int	check_order(t_list *stack)
+{
+	int	t;
+
+	while (stack->next)
+	{
+		t = stack->data;
+		if (t > stack->next->data)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   creating.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/19 15:37:53 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/05/19 15:37:55 by sgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	create_stack(t_list **stack_a, int *arr, int size)
@@ -15,24 +27,25 @@ int	*create_array(int argc, char **argv, int count)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	rval = (int *)malloc(sizeof(int) * count);
 	if (!rval)
-	{
-		write(2, "NO MEMORY!\n", 11);
-		exit(EXIT_FAILURE);
-	}
-	while (i < argc)
+		exit_failure();
+	while (++i < argc)
 	{
 		argv[i] = skip_spaces(argv[i]);
 		while (argv[i][0])
 		{
 			argv[i] = ft_atoi(argv[i], rval + j);
+			if (!argv[i])
+			{
+				free(rval);
+				exit_failure();
+			}
 			argv[i] = skip_spaces(argv[i]);
 			j++;
 		}
-		i++;
 	}
 	return (rval);
 }
@@ -88,18 +101,4 @@ void	three_sort(t_list **stack_a)
 			shift_down(stack_a, "rra\n");
 		i++;
 	}
-}
-
-int	check_order(t_list *stack)
-{
-	int	t;
-
-	while (stack->next)
-	{
-		t = stack->data;
-		if (t > stack->next->data)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
 }

@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/05/19 15:37:48 by sgoremyk          #+#    #+#              #
+#    Updated: 2024/05/19 15:37:49 by sgoremyk         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME 	=	push_swap
 
 INCLUDE =	push_swap.h
@@ -8,27 +20,25 @@ SRCS	=	push_swap.c		creating.c\
 
 OBJ		=	$(SRCS:%.c=%.o)
 
-LIB		=	libft.a
+LIB		=	./libft/libft.a
 
 CFLAGS	=	-Wall -Wextra -Werror
 
-.PHONY	:	all clean fclean re
-
 all		:	$(NAME)
 
-$(NAME)	:	$(OBJ) $(INCLUDE) $(LIB)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB)
+$(NAME)	:	$(OBJ) $(INCLUDE)
+	$(MAKE) -sC ./libft
+	$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
 
-$(LIB)	:
-	cd libft && make && make clean && mv libft.a ../libft.a
-
-%.o		:	%.c $(INCLUDE) $(LIB)
+%.o		:	%.c $(INCLUDE)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean	:
-	rm -f $(OBJ) $(LIB)
+	rm -f $(OBJ)
 
 fclean	:	clean
-	rm -f $(OBJ) $(NAME)
+	rm -f $(NAME)
 
 re		:	fclean all
+
+.PHONY	:	all clean fclean re

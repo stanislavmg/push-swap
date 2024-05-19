@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/19 15:40:47 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/05/19 15:40:48 by sgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
@@ -12,7 +24,7 @@ typedef struct s_list
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
-int		ft_isspace(char	ch);
+int		ft_isspace(char ch);
 int		ft_strnstr(const char *big, const char *little, size_t len);
 size_t	ft_strlen(const char *s);
 void	ft_putstr(const char *s);

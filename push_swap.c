@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/19 15:38:06 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/05/19 15:38:07 by sgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
@@ -26,4 +38,10 @@ int	main(int argc, char **argv)
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	return (0);
+}
+
+void	exit_failure(void)
+{
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }

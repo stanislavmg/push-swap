@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/19 15:38:38 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/05/19 15:38:39 by sgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -13,12 +25,15 @@ void	shift_down(t_list **stack, const char *str);
 int		valid_args(int argc, char **argv, int *count, int **arr);
 int		check_duplicate(int	*arr, int size);
 int		check_str(char *str, int *count);
+int		check_sign(char *str);
 int		check_arr(int	*arr, int size);
 int		check_order(t_list *stack);
 
 /* stack create, initialization and free */
 int		*create_array(int argc, char **argv, int count);
 void	create_stack(t_list **stack_a, int *arr, int size);
+void	exit_failure(void);
+
 /* sorting algorithm */
 void	sort_stack(t_list **stack_a, t_list **stack_b, int *arr, int size);
 void	small_sort(t_list **stack_a, t_list **stack_b, int *arr, int size);

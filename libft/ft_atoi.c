@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/19 15:40:07 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/05/19 15:40:08 by sgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *skip_spaces(const char *str)
+char	*skip_spaces(const char *str)
 {
 	while (ft_isspace(*str))
 		str++;
@@ -9,9 +21,9 @@ char *skip_spaces(const char *str)
 
 char	*ft_atoi(const char *str, int *data)
 {
+	long long	res;
 	int			sign;
 	int			i;
-	long long	res;
 
 	i = 0;
 	res = 0;
@@ -29,11 +41,9 @@ char	*ft_atoi(const char *str, int *data)
 		res += str[i] - '0';
 		i++;
 	}
+	res *= sign;
 	if (res > INT_MAX || res < INT_MIN)
-	{
-		write(2, "Error\n", 6);
-		exit(EXIT_FAILURE);
-	}
-	*data = res * sign;
+		return (NULL);
+	*data = res;
 	return ((char *)str + i);
 }
