@@ -27,8 +27,7 @@ int	main(int argc, char **argv)
 	{
 		if (arr)
 			free(arr);
-		write(2, "Error\n", 6);
-		return (1);
+		exit_failure();
 	}
 	create_stack(&stack_a, arr, count);
 	sort_array(arr, count);

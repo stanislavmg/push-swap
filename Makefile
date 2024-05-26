@@ -22,7 +22,7 @@ OBJ		=	$(SRCS:%.c=%.o)
 
 LIB		=	./libft/libft.a
 
-CFLAGS	=	-Wall -Wextra -Werror -g
+CFLAGS	=	-Wall -Wextra -Werror
 
 all		:	$(NAME)
 

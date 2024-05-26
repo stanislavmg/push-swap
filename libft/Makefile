@@ -40,6 +40,6 @@ clean	:
 	rm -f $(OBJ)
 
 fclean	:	clean
-	rm -f $(OBJ) $(NAME)
+	rm $(NAME)
 
 re		:	fclean all
