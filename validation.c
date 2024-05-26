@@ -56,10 +56,10 @@ int	valid_args(int argc, char **argv, int *count, int **arr)
 {
 	int	i;
 
-	if (!argv[1][0])
-		return (1);
 	if (argc < 2 || !argv)
 		exit (-1);
+	if (!argv[1][0])
+		return (1);
 	i = 1;
 	while (i < argc)
 	{
@@ -67,6 +67,8 @@ int	valid_args(int argc, char **argv, int *count, int **arr)
 			return (1);
 		i++;
 	}
+	if (!*count)
+		return (1);
 	*arr = create_array(argc, argv, *count);
 	if (check_duplicate(*arr, *count))
 		return (1);

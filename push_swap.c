@@ -25,6 +25,8 @@ int	main(int argc, char **argv)
 	count = 0;
 	if (valid_args(argc, argv, &count, &arr))
 	{
+		if (arr)
+			free(arr);
 		write(2, "Error\n", 6);
 		return (1);
 	}
